@@ -4,22 +4,28 @@ const AdminBroExpress = require('admin-bro-expressjs');
 const AdminBroMongoose = require('admin-bro-mongoose');
 
 const {User} = require('../models/user');
+const {Project} = require('../models/project');
 
 AdminBro.registerAdapter(AdminBroMongoose)
 const adminBro = new AdminBro({
-    resources: [{
+    resources: [
+        {
         resource: User,
-        options: {
-            properties: {
-                password: {
-                    type: 'string',
-                    isVisible: {
-                        list: false, edit: true, filter: false, show: false,
+            options: {
+                properties: {
+                    password: {
+                        type: 'string',
+                        isVisible: {
+                            list: false, edit: true, filter: false, show: false,
+                        },
                     },
-                },
+                }
             }
+        },
+        {
+            resource: Project
         }
-    }],
+    ],
     rootPath: '/admin',
 })
 
