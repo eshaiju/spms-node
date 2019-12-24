@@ -31,7 +31,13 @@ const userSchema = new mongoose.Schema({
     },
     designation: {
         type: String
-    }
+    },
+    projects: [
+        {
+            type: mongoose.Schema.Types.ObjectID,
+            ref: 'Project',
+        }
+    ]
 });
 
 userSchema.methods.generateAuthToken = function() {
