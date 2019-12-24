@@ -1,7 +1,7 @@
 const express = require('express');
-const users = require('../routes/users');
-const login = require('../routes/login');
-const admin = require('../routes/admin');
+const users = require('../controllers/api/users');
+const login = require('../controllers/api/login');
+const admin = require('../models/admin');
 const error = require('../middleware/error');
 
 module.exports = function(app) {

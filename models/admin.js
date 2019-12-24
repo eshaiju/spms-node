@@ -3,9 +3,9 @@ const bcrypt = require('bcrypt');
 const AdminBroExpress = require('admin-bro-expressjs');
 const AdminBroMongoose = require('admin-bro-mongoose');
 
-const {User} = require('../models/user');
-const {Project} = require('../models/project');
-const {Ticket} = require('../models/ticket');
+const {User} = require('./user');
+const {Project} = require('./project');
+const {Ticket} = require('./ticket');
 
 
 AdminBro.registerAdapter(AdminBroMongoose)
