@@ -5,6 +5,8 @@ const AdminBroMongoose = require('admin-bro-mongoose');
 
 const {User} = require('../models/user');
 const {Project} = require('../models/project');
+const {Ticket} = require('../models/ticket');
+
 
 AdminBro.registerAdapter(AdminBroMongoose)
 const adminBro = new AdminBro({
@@ -24,6 +26,9 @@ const adminBro = new AdminBro({
         },
         {
             resource: Project
+        },
+        {
+            resource: Ticket
         }
     ],
     rootPath: '/admin',

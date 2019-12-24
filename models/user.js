@@ -35,7 +35,7 @@ const userSchema = new mongoose.Schema({
     projects: [
         {
             type: mongoose.Schema.Types.ObjectID,
-            ref: 'Project',
+            ref: 'Project'
         }
     ]
 });

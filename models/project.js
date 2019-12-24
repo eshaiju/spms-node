@@ -10,7 +10,6 @@ const projectSchema = new mongoose.Schema({
     }
 });
 
-
 const Project = mongoose.model('Project', projectSchema);
 
 function validateProject(project) {
