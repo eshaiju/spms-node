@@ -26,6 +26,7 @@
     "lodash": "^4.17.15",
     "mongoose": "^5.8.3",
     "pryjs": "^1.0.3",
+    "swagger-ui-express": "^4.1.2",
     "winston": "^3.2.1"
   }
 }
