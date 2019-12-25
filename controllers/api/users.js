@@ -4,10 +4,11 @@ const _ = require('lodash');
 const {User, validate} = require('../../models/user');
 const express = require('express');
 const router = express.Router();
+const { UserSerializer } = require('../../serializers/user_serializer');
 
 router.get('/me', auth, async (req, res) => {
     const user = await User.findById(req.user._id).populate('projects', 'name').select('-password');
-    res.send(user);
+    res.send(UserSerializer.serialize(user));
 });
 
 router.post('/', async (req, res) => {
@@ -23,7 +24,7 @@ router.post('/', async (req, res) => {
     await user.save();
 
     const token = user.generateAuthToken();
-    res.header('x-auth-token', token).send(_.pick(user, ['_id', 'name', 'email']));
+    res.header('x-auth-token', token).send(UserSerializer.serialize(user));
 });
 
 module.exports = router;
