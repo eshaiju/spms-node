@@ -1,6 +1,6 @@
 let JSONAPISerializer = require('jsonapi-serializer').Serializer;
 
-let ProjectSerializer = new JSONAPISerializer('users', {
+let ProjectSerializer = new JSONAPISerializer('project', {
     attributes: ['name']
 });
 
