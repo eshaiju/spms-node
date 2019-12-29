@@ -1,6 +1,5 @@
 const express = require('express');
 const winston = require('winston');
-pry = require('pryjs')
 
 const app = express();
 

@@ -1,14 +1,17 @@
-const auth = require('../../middleware/auth');
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
-const {User, validate} = require('../../models/user');
 const express = require('express');
-const router = express.Router();
+
 const { UserSerializer } = require('../../serializers/user_serializer');
+const {User, validate} = require('../../models/user');
+const auth = require('../../middleware/auth');
+
+const router = express.Router();
 
 router.get('/me', auth, async (req, res) => {
     const user = await User.findById(req.user._id).populate('projects', 'name').select('-password');
-    res.send(UserSerializer.serialize(user));
+    debugger;
+    res.json(UserSerializer.serialize(user));
 });
 
 router.post('/', async (req, res) => {
@@ -24,7 +27,7 @@ router.post('/', async (req, res) => {
     await user.save();
 
     const token = user.generateAuthToken();
-    res.header('x-auth-token', token).send(UserSerializer.serialize(user));
+    res.header('x-auth-token', token).json(UserSerializer.serialize(user));
 });
 
 module.exports = router;
