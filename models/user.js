@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         minlength: 3,
         maxlength: 10,
-        unique: true
+        // unique: true
     },
     designation: {
         type: String
@@ -39,7 +39,8 @@ const userSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectID,
             ref: 'Project'
         }
-    ]
+    ],
+    image: { type: String },
 });
 
 userSchema.methods.generateAuthToken = function() {
@@ -54,7 +55,7 @@ function validateUser(user) {
         name: Joi.string().min(5).max(50).required(),
         email: Joi.string().min(5).max(255).required().email(),
         password: Joi.string().min(5).max(255).required(),
-        emp_id: Joi.string().min(3).max(10).required(),
+        // emp_id: Joi.string().min(3).max(10).required(),
         designation: Joi.string()
     };
 
